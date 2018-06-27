@@ -1,0 +1,20 @@
+body{
+    background-image: url("../images/otherice_background.jpg")
+}
+
+
+
+.container{
+    background-color: black;
+}
+
+#heading{
+    text-align: center;
+    font-size: 2em;
+    color: blue;
+}
+
+p{
+    color: blue;
+    font-size: 1.5em;
+}
