@@ -1,9 +1,10 @@
-var words = ["khaleesi", "tyrion", "cersei", "stark", "targaryen", "lannister", "hodor", "winterfell", "tyrell", "daenerys"]
+var words = ["khaleesi", "tyrion", "cersei", "stark", "targaryen", "greyjoy","brienne", "lannister", "hodor", "winterfell", "tyrell", "daenerys", "dragon", "sansa", "joffrey", "melisandre", "bronn", "baratheon", "samwell", "gilly", "drogo"]
+
 var correct = 0;
 var wrong = 0;
 var wrongList = []
 var correctList = []
-var numberGuessRem = 13
+var numberGuessRem = 11
 var randomWord = words[Math.floor(Math.random() * words.length)];
 var correctLetter = 0;
 var wrongLetter = 0;
@@ -24,15 +25,23 @@ document.onkeyup = function (event) {
     var correctWord = []
 
     for (var i = 0; i < randomWord.length; i++) {
+        if(correctList.includes(randomWord.charAt(i)) ){
+            dashes[i]=randomWord.charAt(i)   
+        }//else if(randomWord.charAt(i)===" "){
+            //dashes[i] = " "
+       // }
+        else 
         dashes[i] = "_";
     }
+
+    
 
 
     var remainingLetters = letters.length;
 
 
     if (numberGuessRem === 0) {
-        numberGuessRem = 13
+        numberGuessRem = 11
         randomWord = words[Math.floor(Math.random() * words.length)];
     }
 
@@ -56,7 +65,7 @@ document.onkeyup = function (event) {
     if (numberGuessRem === 0) {
         wrongList = []
         correctList = []
-        noWin = "Sorry you lost!"
+        noWin = "Sorry you lost! Correct word is: "
         currentWord = randomWord
     }
 
@@ -82,7 +91,7 @@ document.onkeyup = function (event) {
         correctList = []
         win++
         currentWord = randomWord
-        numberGuessRem = 13
+        numberGuessRem = 11
         randomWord = words[Math.floor(Math.random() * words.length)];
     }
 
@@ -104,10 +113,10 @@ document.onkeyup = function (event) {
 
     document.getElementById("current_word").innerHTML = html;
 
-    var html =
-        "<p>" + correctList.join(" ") + "</p>"
+    //var html =
+      //  "<p>" + correctList.join(" ") + "</p>"
 
-    document.getElementById("correct_guess").innerHTML = html;
+    //document.getElementById("correct_guess").innerHTML = html;
 
     var html =
         "<p>" + numberGuessRem + "</p>"
